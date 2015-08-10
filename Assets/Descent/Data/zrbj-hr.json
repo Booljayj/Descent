@@ -1,0 +1,579 @@
+{
+	"title":"Make-up or Break-up?",
+	"data":{
+		"stitches":{
+			"NothingHappenedN":{
+				"content":[
+					" Nothing happened. Nothing!\"",
+					{
+						"notIfConditions":null,
+						"option":"\"I can't be sure of that.\"",
+						"ifConditions":null,
+						"linkPath":"howCouldYouEverK"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"I believe you.\"",
+						"ifConditions":null,
+						"linkPath":"youDoMaybeYouDoI"
+					}
+				]
+			},
+			"myDarling":{
+				"content":[
+					"My darling. ",
+					{"divert":"whereWouldIBeWit"},
+					{"pageNum":-1},
+					{"pageLabel":" My Darling"}
+				]
+			},
+			"shhDontSpoilIt":{
+				"content":[
+					"\"Shh. Don't spoil it.\"/==/",
+					{
+						"notIfConditions":null,
+						"option":"...",
+						"ifConditions":null,
+						"linkPath":"curtainFalls"
+					}
+				]
+			},
+			"thatsOkayYoureHe":{
+				"content":[
+					"\"That's okay. You're here now. I just... ",
+					{"runOn":true},
+					{"divert":"iKnowIYoureAngry"}
+				]
+			},
+			"soYouDontTrustMe":{
+				"content":[
+					"\"So you don't trust me. After everything, you still don't. How long have we known each other? How long were we... I don't know. Is there anything I could have done to make you trust me?\"",
+					{
+						"notIfConditions":null,
+						"option":"\"You could have kept that trust.\"",
+						"ifConditions":null,
+						"linkPath":"iDidIDidOnlyYouD"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"You could have told me yourself.\"",
+						"ifConditions":null,
+						"linkPath":"toldYouWhatThere"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"I don't know. I just don't know.\"",
+						"ifConditions":null,
+						"linkPath":"iNeverWantedToHu"
+					},
+					{"flagName":"don't trust"},
+					{"pageNum":2},
+					{"pageLabel":"Don't trust me"}
+				]
+			},
+			"allRightThatsThe":{
+				"content":[
+					"\"All right. That's the best we can do. And I'll try too. ",
+					{"runOn":true},
+					{"divert":"myDarling"}
+				]
+			},
+			"whatDoYouMean":{
+				"content":[
+					"\"What do you mean?\"",
+					{
+						"notIfConditions":null,
+						"option":"\"We're over. I'm here to tell you that.\"",
+						"ifConditions":null,
+						"linkPath":"iSeeISeeWellItSe"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"You have to be more careful.\"",
+						"ifConditions":null,
+						"linkPath":"youreRightYoureR"
+					}
+				]
+			},
+			"amIIGuessIllHave":{
+				"content":[
+					"\"Am I? I guess I'll have to be happy with that, won't I? It's the closest thing to compliment I'm likely to get here. But you know what? You're paranoid. ",
+					{"runOn":true},
+					{"divert":"NothingHappenedN"}
+				]
+			},
+			"youDoMaybeYouDoI":{
+				"content":[
+					"\"You do? Maybe you do. I can't tell any better than you can tell about me.",
+					{"runOn":true},
+					{"divert":"thatsTheStupidTh"},
+					{"pageNum":-1}
+				]
+			},
+			"dontSayThatSayNe":{
+				"content":[
+					"\"Don't say that. Say /=never=/. ",
+					{"runOn":true},
+					{"divert":"myDarling"}
+				]
+			},
+			"itAllComesDownTo":{
+				"content":[
+					"\"It all comes down to /=now=/. What you see when you look in my eyes. Do you see a liar and a cheat, or do you see your friend? Your very best friend? Look me in the eyes, now. Tell me what you see.\"",
+					{
+						"notIfConditions":null,
+						"option":"\"Don't make this about me.\"",
+						"ifConditions":null,
+						"linkPath":"butItIsAboutYouI"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"I see...\"",
+						"ifConditions":null,
+						"linkPath":"whatDoYouSeeLook"
+					}
+				]
+			},
+			"iSeeISeeWellItSe":{
+				"content":[
+					"\"I see. I see. Well, it seems your mind is made up. Thank you for coming to tell me yourself.\"",
+					{
+						"notIfConditions":null,
+						"option":"\"You won't see me again.\"",
+						"ifConditions":null,
+						"linkPath":"thenThisIsHowYou"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"I had to see you once more.\"",
+						"ifConditions":null,
+						"linkPath":"thenThisIsHowYou"
+					},
+					{"pageNum":4},
+					{"pageLabel":" Over"}
+				]
+			},
+			"doYouYouShouldYo":{
+				"content":[
+					"\"Do you? You should, you know. ",
+					{"runOn":true},
+					{"divert":"NothingHappenedN"}
+				]
+			},
+			"whatDoYouMeanWha":{
+				"content":[
+					"\"What do you mean? What else can I do?\"",
+					{
+						"notIfConditions":null,
+						"option":"\"You can tell me the truth.\"",
+						"ifConditions":null,"linkPath":"soYouDontTrustMe"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"There's nothing you can do.\"",
+						"ifConditions":null,
+						"linkPath":"soYouDontTrustMe"
+					}
+				]
+			},
+			"iDontKnowIDontKn":{
+				"content":[
+					"\"I don't know. I don't know how anyone can trust anyone. You just have to try, I suppose. You have to want to. Do you want to?\"",
+					{
+						"notIfConditions":null,
+						"option":"\"Yes.\"",
+						"ifConditions":null,
+						"linkPath":"ohPreciousOkayOk"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"No.\"",
+						"ifConditions":null,
+						"linkPath":"iSeeISeeWellItSe"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"That's not enough.\"",
+						"ifConditions":null,
+						"linkPath":"whatDoYouMean"
+					}
+				]
+			},
+			"butItIsAboutYouI":{
+				"content":[
+					"\"But it /=is=/ about you. It's about whether you trust me, or not. That's /=all=/ it's about. It's not even about what I've done. I haven't done anything, but that doesn't matter. All that matters is what you believe about me.\"",
+					{
+						"notIfConditions":null,
+						"option":"\"I believe you'd say anything.\"",
+						"ifConditions":null,
+						"linkPath":"dontSayThatDontS"
+					},
+					{
+						"notIfConditions":[
+							{"notIfCondition":"don't trust"}
+						],
+						"option":"\"I trust you.\"",
+						"ifConditions":null,
+						"linkPath":"ohPreciousOkayOk"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"We're over. It's as simple as that.\"",
+						"ifConditions":null,
+						"linkPath":"iSeeISeeWellItSe"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"How can I trust you?\"",
+						"ifConditions":null,
+						"linkPath":"iDontKnowIDontKn"
+					}
+				]
+			},
+			"whereWouldIBeWit":{
+				"content":[
+					"\"Where would I be without you?\"",
+					{
+						"notIfConditions":null,
+						"option":"Don't answer that",
+						"ifConditions":null,
+						"linkPath":"aSilentSmileANod"
+					},
+					{
+						"notIfConditions":null,
+						"option":"Answer",
+						"ifConditions":null,
+						"linkPath":"aFingerOnYourLip"
+					}
+				]
+			},
+			"aFingerOnYourLip":{
+				"content":[
+					"/=A finger on your lips.=/",
+					{"divert":"shhDontSpoilIt"}
+				]
+			},
+			"youThinkSoNoYouD":{
+				"content":[
+					"\"You think so? No, you don't. You're just saying that. You'd say whatever to make sure I don't cry, wouldn't you? That's why you wanted to meet here. Somewhere /=public=/, so I wouldn't cry. Well, bad luck. If you're horrible to me I won't be able to stop myself and then everyone in this bar will be looking at you like you're a criminal.\"",
+					{
+						"notIfConditions":null,
+						"option":"\"I'm not the one who's done anything wrong.\"",
+						"ifConditions":null,
+						"linkPath":"soYouDontTrustMe"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"You can cry all you like.\"",
+						"ifConditions":null,
+						"linkPath":"ohGodHowDidIEndU"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"I won't be horrible. I just need to know the truth.\"",
+						"ifConditions":null,
+						"linkPath":"soYouDontTrustMe"
+					}
+				]
+			},
+			"dontSayThatDontS":{
+				"content":[
+					"\"Don't say that. Don't say that. If you say that, I can't ever change your mind. You won't ever be able to trust me again.\"",
+					{
+						"notIfConditions":null,
+						"option":"\"That doesn't matter.\"",
+						"ifConditions":null,
+						"linkPath":"howCouldItNotMat"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"No, I won't.\"",
+						"ifConditions":null,
+						"linkPath":"iSeeISeeWellItSe"
+					}
+				]
+			},
+			"aSilentSmileANod":{
+				"content":[
+					"/=A silent smile. A nod.=/",
+					{"divert":"goodIdeaDontSpoi"}
+				]
+			},
+			"iDidIDidOnlyYouD":{
+				"content":[
+					"\"I did. I did, only you don't believe me. Please. Look me in the eyes. ",
+					{"runOn":true},
+					{"divert":"NothingHappenedN"}
+				]
+			},
+			"youreRightYoureR":{
+				"content":[
+					"\"You're right. You're right, I suppose. If you can't know what I've done... then I have to be more than good. I have to appear to be good as well. And so do you. We can try, can't we? Try to be honest, and look honest, at the same time?\"",
+					{
+						"notIfConditions":null,
+						"option":"\"It's too much to ask.\"",
+						"ifConditions":null,
+						"linkPath":"iSeeISeeWellItSe"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"We can try.\"",
+						"ifConditions":null,
+						"linkPath":"ohPreciousOkayOk"
+					}
+				]
+			},
+			"iKnowIYoureAngry":{
+				"content":[
+					"I know... I you're angry with me. And it's all a misunderstanding. You know that, right? All of this is one big mistake. I know what you heard but it isn't true. I've never been unfaithful to you. You've got to believe that's true.\"",
+					{
+						"notIfConditions":null,
+						"option":"\"Of course it is.\"",
+						"ifConditions":null,
+						"linkPath":"youThinkSoNoYouD"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"I'm not sure of that at all.\"",
+						"ifConditions":null,
+						"linkPath":"soYouDontTrustMe"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"You can certainly talk, can't you?\"",
+						"ifConditions":null,
+						"linkPath":"whatDoYouMeanWha"
+					}
+				]
+			},
+			"whatDoYouSeeLook":{
+				"content":[
+					"\"What do you see? Look. What do you see?\"",
+					{
+						"notIfConditions":null,
+						"option":"\"I see you'd say anything.\"",
+						"ifConditions":null,
+						"linkPath":"dontSayThatDontS"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"You must be telling the truth.\"",
+						"ifConditions":null,
+						"linkPath":"ohPreciousOkayOk"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"It doesn't matter what I see.\"",
+						"ifConditions":null,
+						"linkPath":"howCouldItNotMat"
+					}
+				]
+			},
+			"iCantApologiseIC":{
+				"content":[
+					"\"I can't apologise. I can't, because I didn't do anything wrong.\"",
+					{
+						"notIfConditions":null,
+						"option":"\"I believe you.\"",
+						"ifConditions":null,
+						"linkPath":"youDoMaybeYouDoI"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"How can I know that for sure?\"",
+						"ifConditions":null,
+						"linkPath":"howCouldYouEverK"
+					}
+				]
+			},
+			"thenThisIsHowYou":{
+				"content":[
+					"\"Then this is how you can remember me. As someone you didn't know. That you never really knew, and you never trusted. I hope you enjoy the memory.\"",
+					{
+						"notIfConditions":null,
+						"option":"...",
+						"ifConditions":null,
+						"linkPath":"curtainFalls"
+					}
+				]
+			},
+			"thatsTheStupidTh":{
+				"content":[
+					"That's the stupid thing about all this. You can't ever know for certain, no matter what anyone tells you. There's no way to prove what happened in that room. There never will be. ",
+					{"divert":"itAllComesDownTo"}
+				]
+			},
+			"ohGodHowDidIEndU":{
+				"content":[
+					"\"Oh, God. How did I end up like this? I should never have let myself get dependent on you. I had a good job, I had friends, and now what have I got? You've broken me in two, and now you don't even trust me.\"",
+					{
+						"notIfConditions":null,
+						"option":"\"I do trust you.\"",
+						"ifConditions":null,
+						"linkPath":"doYouYouShouldYo"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"You're too good a liar.\"",
+						"ifConditions":null,
+						"linkPath":"amIIGuessIllHave"
+					}
+				]
+			},
+			"curtainFalls":{
+				"content":[
+					"/=Curtain falls=/",
+					{"pageNum":7},
+					{"pageLabel":" The End"}
+				]
+			},
+			"imGladYouCouldMa":{
+				"content":[
+					"\"I'm glad you could make it. I didn't think... I didn't think you were coming.\"",
+					{
+						"notIfConditions":null,
+						"option":"\"Of course I was coming.\"",
+						"ifConditions":null,
+						"linkPath":"yeahYoureRightIS"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"I'm sorry, I know I'm late.\"",
+						"ifConditions":null,
+						"linkPath":"thatsOkayYoureHe"
+					},
+					{"pageNum":1},
+					{"pageLabel":"Start"}
+				]
+			},
+			"howCouldItNotMat":{
+				"content":[
+					"\"How could it not matter?\"",
+					{
+						"notIfConditions":null,
+						"option":"\"We're over. It's that simple. I came to say goodbye.\"",
+						"ifConditions":null,
+						"linkPath":"iSeeISeeWellItSe"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"I can't ever know. I'll just have to trust you.\"",
+						"ifConditions":null,
+						"linkPath":"butYouWillIMeanY"
+					},
+					{"pageNum":5},
+					{"pageLabel":" How could it not matter"}
+				]
+			},
+			"ohPreciousOkayOk":{
+				"content":[
+					"\"Oh. Precious. Okay. Okay. I'll live up to that, I will. I mean, I'll try to, but I will. Oh, God. I thought maybe you would go. I thought maybe you'd made your mind up to go already...\"",
+					{
+						"notIfConditions":null,
+						"option":"\"Not today.\"",
+						"ifConditions":null,
+						"linkPath":"dontSayThatSayNe"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"Never.\"",
+						"ifConditions":null,
+						"linkPath":"never"
+					},
+					{"pageNum":6},
+					{"pageLabel":"Precious"}
+				]
+			},
+			"toldYouWhatThere":{
+				"content":[
+					"\"Told you what? There's nothing to tell.",
+					{"runOn":true},
+					{"divert":"NothingHappenedN"}
+				]
+			},
+			"goodIdeaDontSpoi":{
+				"content":[
+					"\"Good idea. Don't spoil it.\"/==/",
+					{
+						"notIfConditions":null,
+						"option":"...",
+						"ifConditions":null,
+						"linkPath":"curtainFalls"
+					}
+				]
+			},
+			"never":{
+				"content":[
+					"\"Never. ",
+					{"runOn":true},
+					{"divert":"myDarling"}
+				]
+			},
+			"butYouWillIMeanY":{
+				"content":[
+					"\"But you will? I mean, you'll try?\"",
+					{
+						"notIfConditions":null,
+						"option":"\"I'll try.\"",
+						"ifConditions":null,
+						"linkPath":"allRightThatsThe"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"I do. It's too late for me.\"",
+						"ifConditions":null,
+						"linkPath":"ohPreciousOkayOk"
+					}
+				]
+			},
+			"iNeverWantedToHu":{
+				"content":[
+					"\"I never wanted to hurt you. You must know that, at least.\"",
+					{
+						"notIfConditions":null,
+						"option":"\"I can't be sure.\"",
+						"ifConditions":null,
+						"linkPath":"howCouldYouEverK"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"Then at least apologise.\"",
+						"ifConditions":null,
+						"linkPath":"iCantApologiseIC"
+					},
+					{
+						"notIfConditions":null,
+						"option":"\"I believe you.\"",
+						"ifConditions":null,
+						"linkPath":"youDoMaybeYouDoI"
+					}
+				]
+			},
+			"howCouldYouEverK":{
+				"content":[
+					"\"How could you /=ever=/ know for sure? Of course you can't. ",
+					{"runOn":true},
+					{"divert":"thatsTheStupidTh"},
+					{"pageNum":3},
+					{"pageLabel":" How could you ever know"}
+				]
+			},
+			"yeahYoureRightIS":{
+				"content":[
+					"\"Yeah, you're right. I shouldn't have worried. Only, ",
+					{"runOn":true},
+					{"divert":"iKnowIYoureAngry"}
+				]
+			}
+		},
+		"editorData":{
+			"libraryVisible":true,
+			"authorName":"inkle",
+			"playPoint":"whereWouldIBeWit"
+		},
+		"initial":"imGladYouCouldMa"
+	},
+	"url_key":"zrbj",
+	"updated_at":"2012-07-17T13:50:11Z",
+	"created_at":"2012-07-17T09:04:10Z"
+}
