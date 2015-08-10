@@ -43,9 +43,9 @@ public class Story : ScriptableObject {
 			
 			if (showText) {
 				if (string.IsNullOrEmpty(fullText)) {
-					fullText = snippet.text;
+					fullText = "\t"+snippet.text;
 				} else {
-					fullText += "\n"+snippet.text;
+					fullText += "\n\t"+snippet.text;
 				}
 			}
 			
