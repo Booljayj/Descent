@@ -146,6 +146,11 @@ public static class StoryImporter {
 			Replace("/=","<i>").
 			Replace("=/","</i>").
 			Replace("*-","<b>").
-			Replace("-*", "</b>");
+			Replace("-*", "</b>").
+			Replace("\\u2019","'"). //unicode right single quote
+			Replace("\\u2018","'"). //unicode left single quote
+			Replace("\\u201c","\""). //unicode right double quote
+			Replace("\\u201d","\"") //unicode left double quote
+			;
 	}
 }
