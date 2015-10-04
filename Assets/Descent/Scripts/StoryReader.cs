@@ -13,9 +13,10 @@ public class StoryReader : MonoBehaviour {
 	[Space(10)]
 	public RectTransform scrollbox;
 	public ScrollRect scroller;
-	public StoryPanel panelPrefab;
-	public Color passageColor;
-	public Color choiceColor;
+
+	[Space(10)]
+	public StoryPanel passagePrefab;
+	public StoryPanel choicePrefab;
 
 	[Space(10)]
 	public Button[] buttons;
@@ -29,11 +30,11 @@ public class StoryReader : MonoBehaviour {
 		currentPassage = story.GetPassage(currentId, context);
 
 		//create a passage panel to show in the scroll
-		StoryPanel passage = Instantiate<StoryPanel>(panelPrefab);
-		passage.SetPanel(currentPassage.text, passageColor);
+		StoryPanel passage = Instantiate<StoryPanel>(passagePrefab);
+		passage.SetPanel(currentPassage.text);
 		
 		//show the choice and the new passage
-		passage.transform.SetParent(scrollbox);
+		passage.transform.SetParent(scrollbox, false);
 		
 		for (int i = 0; i < buttons.GetLength(0); i++) {
 			if (i < currentPassage.links.GetLength(0)) {
@@ -71,25 +72,22 @@ public class StoryReader : MonoBehaviour {
 
 	public void ChooseOption(int index) {
 		//create a choice panel to show in the scroll
-		StoryPanel choice = Instantiate<StoryPanel>(panelPrefab);
-		choice.SetPanel(currentPassage.links[index].text, choiceColor);
+		StoryPanel choice = Instantiate<StoryPanel>(choicePrefab);
+		choice.SetPanel(currentPassage.links[index].text);
 
 		//get the new passage
 		currentId = currentPassage.links[index].link;
 		currentPassage = story.GetPassage(currentId, context);
 
 		//create a passage panel to show in the scroll
-		StoryPanel passage = Instantiate<StoryPanel>(panelPrefab);
-		passage.SetPanel(currentPassage.text, passageColor);
+		StoryPanel passage = Instantiate<StoryPanel>(passagePrefab);
+		passage.SetPanel(currentPassage.text);
 
 		//show the choice and the new passage
-		choice.transform.SetParent(scrollbox);
-		passage.transform.SetParent(scrollbox);
+		choice.transform.SetParent(scrollbox, false);
+		passage.transform.SetParent(scrollbox, false);
 
-		//scroll to the bottom
-		Canvas.ForceUpdateCanvases();
-		scroller.normalizedPosition = Vector2.zero;
-
+		//show buttons if available
 		for (int i = 0; i < buttons.GetLength(0); i++) {
 			if (i < currentPassage.links.GetLength(0)) {
 				buttons[i].gameObject.SetActive(true);
@@ -98,5 +96,9 @@ public class StoryReader : MonoBehaviour {
 				buttons[i].gameObject.SetActive(false);
 			}
 		}
+
+		//scroll to the bottom
+		Canvas.ForceUpdateCanvases();
+		scroller.normalizedPosition = Vector2.zero;
 	}
 }
