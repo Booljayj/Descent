@@ -24,6 +24,23 @@ public class StoryEditor : Editor {
 			}
 		}
 
-		DrawDefaultInspector();
+		//DrawDefaultInspector();
+		EditorStyles.textField.wordWrap = true;
+		foreach (Story.Snippet s in t.snippets) {
+			EditorGUILayout.Separator();
+
+			EditorGUILayout.LabelField(s.id, EditorStyles.boldLabel);
+			EditorGUILayout.TextArea(s.text);
+
+			EditorGUI.indentLevel += 1;
+			foreach (Story.Option o in s.options) {
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField(o.text, GUILayout.Width(125f));
+				EditorGUILayout.LabelField("=>", GUILayout.Width(35f));
+				EditorGUILayout.LabelField(o.link, GUILayout.Width(140f));
+				EditorGUILayout.EndHorizontal();
+			}
+			EditorGUI.indentLevel -= 1;
+		}
 	}
 }
