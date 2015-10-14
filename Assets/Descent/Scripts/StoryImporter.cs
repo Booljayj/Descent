@@ -3,15 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 public static class StoryImporter {
-	public static Hashtable ImportInklewriter(string raw) {
-		Hashtable data = new Hashtable(3);
+	public static void ImportInklewriter(string raw, Story story) {
 		List<Story.Snippet> snippets = new List<Story.Snippet>();
 		
 		JSONObject root = new JSONObject(raw);
 		JSONObject stitches = root["data"]["stitches"];
-		
-		data.Add("title", root["title"].str);
-		data.Add("start", root["data"]["initial"].str);
+
+		story.title = root["title"].str;
+		story.start = root["data"]["initial"].str;
 		
 		foreach (string name in stitches.keys) {
 			Story.Snippet snippet = new Story.Snippet();
@@ -70,9 +69,7 @@ public static class StoryImporter {
 			snippets.Add(snippet);
 		}
 
-		data.Add("snippets", snippets);
-		
-		return data;
+		story.snippets = snippets;
 	}
 	
 	public static Story.Condition ProcessInkleCondition(string input, bool invert) {

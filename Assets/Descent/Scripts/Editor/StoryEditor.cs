@@ -16,10 +16,7 @@ public class StoryEditor : Editor {
 		if (GUILayout.Button("Import")) {
 			string path = EditorUtility.OpenFilePanel("Select Inklewriter File", Application.dataPath, "json");
 			if (!string.IsNullOrEmpty(path)) {
-				Hashtable table = StoryImporter.ImportInklewriter(File.ReadAllText(path));
-				t.title = table["title"] as string;
-				t.start = table["start"] as string;
-				t.snippets = table["snippets"] as List<Story.Snippet>;
+				StoryImporter.ImportInklewriter(File.ReadAllText(path), t);
 				EditorUtility.SetDirty(t);
 			}
 		}
