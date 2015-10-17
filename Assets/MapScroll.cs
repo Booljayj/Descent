@@ -7,6 +7,8 @@ public class MapScroll : MonoBehaviour {
 	public string variableName = "Area";
 	public float transitionDuration = .5f;
 	public AnimationCurve easingCurve;
+	public bool verticalScrolling;
+	public bool horizontalScrolling;
 
 	public List<RectTransform> zones;
 
@@ -27,7 +29,12 @@ public class MapScroll : MonoBehaviour {
 
 	IEnumerator MoveToArea(RectTransform t) {
 		float elapsedTime = 0;
-		Vector3 origin = transform.localPosition, target = -t.localPosition;
+		Vector3 origin = transform.localPosition;
+		Vector3 target = new Vector3(
+			horizontalScrolling? -t.localPosition.x : transform.localPosition.x,
+			verticalScrolling? -t.localPosition.y : transform.localPosition.y,
+			0f
+		);
 
 		while (elapsedTime < transitionDuration) {
 			transform.localPosition = Vector3.Lerp(origin, target, easingCurve.Evaluate(elapsedTime/transitionDuration));
