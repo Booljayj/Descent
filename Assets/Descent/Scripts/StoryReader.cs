@@ -1,104 +1,61 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
+using UnityEngine.Assertions;
+using Ink.Runtime;
 
 public class StoryReader : MonoBehaviour {
-	[SerializeField] Story story;
-	[SerializeField] StoryContext context;
-	
-	[SerializeField] string currentId;
-	[SerializeField, HideInInspector] Passage currentPassage;
+	[SerializeField] TextAsset _story;
 
 	[Space(10)]
-	public RectTransform scrollbox;
-	public ScrollRect scroller;
+	[SerializeField] RectTransform _panelContainer;
+	[SerializeField] StoryButton[] _choiceButtons;
 
 	[Space(10)]
-	public StoryPanel passagePrefab;
-	public StoryPanel choicePrefab;
+	[SerializeField] RectTransform _separatorPrefab;
+	[SerializeField] StoryPanel _panelPrefab;
 
-	[Space(10)]
-	public Button[] buttons;
+	private Story _inkStory;
 
 	void Start() {
-		if (string.IsNullOrEmpty(currentId)) {
-			currentId = story.start;
-		}
-
-		//======= this part all needs to be moved around
-		currentPassage = story.GetPassage(currentId, context);
-
-		//create a passage panel to show in the scroll
-		StoryPanel passage = Instantiate<StoryPanel>(passagePrefab);
-		passage.SetPanel(currentPassage.text);
-		
-		//show the choice and the new passage
-		passage.transform.SetParent(scrollbox, false);
-		
-		for (int i = 0; i < buttons.GetLength(0); i++) {
-			if (i < currentPassage.links.GetLength(0)) {
-				buttons[i].gameObject.SetActive(true);
-				buttons[i].GetComponentInChildren<Text>().text = currentPassage.links[i].text;
-			} else {
-				buttons[i].gameObject.SetActive(false);
-			}
-		}
+		_inkStory = new Story(_story.text);
+		ClearButtons();
+		ContinueStory(false);
 	}
-	
+
 	void OnValidate() {
-		if (story) {
-			if (string.IsNullOrEmpty(currentId)) {
-				currentPassage = story.GetPassage(story.start, context);
-			} else {
-				currentPassage = story.GetPassage(currentId, context);
-			}
-		} else {
-			currentPassage = null;
-		}
-	}
-	
-	public void ResetStory(bool keepContext) {
-		if (!keepContext) {
-			context.Clear();
-		}
-		currentId = story.start;
-		currentPassage = story.GetPassage(currentId, context);
-
-		foreach (Transform t in scrollbox) {
-			Destroy(t.gameObject);
-		}
+		Assert.IsTrue(_story, "Must set a story for the reader to read");
 	}
 
-	public void ChooseOption(int index) {
-		//create a choice panel to show in the scroll
-		StoryPanel choice = Instantiate<StoryPanel>(choicePrefab);
-		choice.SetPanel(currentPassage.links[index].text);
-
-		//get the new passage
-		currentId = currentPassage.links[index].link;
-		currentPassage = story.GetPassage(currentId, context);
-
-		//create a passage panel to show in the scroll
-		StoryPanel passage = Instantiate<StoryPanel>(passagePrefab);
-		passage.SetPanel(currentPassage.text);
-
-		//show the choice and the new passage
-		choice.transform.SetParent(scrollbox, false);
-		passage.transform.SetParent(scrollbox, false);
-
-		//show buttons if available
-		for (int i = 0; i < buttons.GetLength(0); i++) {
-			if (i < currentPassage.links.GetLength(0)) {
-				buttons[i].gameObject.SetActive(true);
-				buttons[i].GetComponentInChildren<Text>().text = currentPassage.links[i].text;
-			} else {
-				buttons[i].gameObject.SetActive(false);
-			}
+	void ContinueStory(bool useSeparator) {
+		//create a separator from the previous stream of text
+		if (useSeparator && _separatorPrefab) {
+			RectTransform separator = Instantiate<RectTransform>(_separatorPrefab);
+			separator.SetParent(_panelContainer, false);
 		}
 
-		//scroll to the bottom
-		Canvas.ForceUpdateCanvases();
-		scroller.normalizedPosition = Vector2.zero;
+		//create panels for each paragraph of text from the story
+		while (_inkStory.canContinue) {
+			StoryPanel panel = Instantiate<StoryPanel>(_panelPrefab);
+			panel.transform.SetParent(_panelContainer, false);
+
+			panel.SetPanel(_inkStory.Continue().Trim());
+		}
+
+		//set up the buttons for the next part of the story
+		ClearButtons();
+		for (int i = 0; i < _inkStory.currentChoices.Count && i < _choiceButtons.Length; i++) {
+			int choiceIndex = i;
+			_choiceButtons[i].Setup(_inkStory.currentChoices[i].text.Trim(), delegate{ChooseOption(choiceIndex);});
+		}
+	}
+
+	void ChooseOption(int index) {
+		_inkStory.ChooseChoiceIndex(index);
+		ContinueStory(true);
+	}
+
+	void ClearButtons() {
+		for (int i = 0; i < _choiceButtons.Length; i++) {
+			_choiceButtons[i].Clear();
+		}
 	}
 }
