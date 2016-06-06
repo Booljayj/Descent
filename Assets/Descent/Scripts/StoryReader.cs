@@ -13,10 +13,15 @@ public class StoryReader : MonoBehaviour {
 	[SerializeField] RectTransform _separatorPrefab;
 	[SerializeField] StoryPanel _panelPrefab;
 
-	private Story _inkStory;
+	Story _inkStory;
+	public Story Story {get {return _inkStory;}}
+
+	public event System.Action<Story> OnStoryLoaded;
 
 	void Start() {
 		_inkStory = new Story(_story.text);
+		if (OnStoryLoaded != null) OnStoryLoaded(_inkStory);
+
 		ClearButtons();
 		ContinueStory(false);
 	}
