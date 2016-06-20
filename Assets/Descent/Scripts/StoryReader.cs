@@ -7,7 +7,9 @@ public class StoryReader : MonoBehaviour {
 
 	[Space(10)]
 	[SerializeField] RectTransform _panelContainer;
+	[SerializeField] RectTransform _panelFooter;
 	[SerializeField] StoryButton[] _choiceButtons;
+	[SerializeField] CanvasGroup _group;
 
 	[Space(10)]
 	[SerializeField] RectTransform _separatorPrefab;
@@ -16,7 +18,14 @@ public class StoryReader : MonoBehaviour {
 	Story _inkStory;
 	public Story Story {get {return _inkStory;}}
 
+	public bool interactable {
+		get {return _group.interactable;}
+		set {_group.interactable = value;}
+	}
+
 	public event System.Action<Story> OnStoryLoaded;
+	public event System.Action OnBeforeContinue;
+	public event System.Action OnAfterContinue;
 
 	void Start() {
 		_inkStory = new Story(_story.text);
@@ -31,6 +40,8 @@ public class StoryReader : MonoBehaviour {
 	}
 
 	void ContinueStory(bool useSeparator) {
+		if (OnBeforeContinue != null) OnBeforeContinue();
+
 		//create a separator from the previous stream of text
 		if (useSeparator && _separatorPrefab) {
 			RectTransform separator = Instantiate<RectTransform>(_separatorPrefab);
@@ -44,6 +55,8 @@ public class StoryReader : MonoBehaviour {
 
 			panel.SetPanel(_inkStory.Continue().Trim());
 		}
+		//advance the footer to the bottom of the feed
+		_panelFooter.SetAsLastSibling();
 
 		//set up the buttons for the next part of the story
 		ClearButtons();
@@ -51,6 +64,8 @@ public class StoryReader : MonoBehaviour {
 			int choiceIndex = i;
 			_choiceButtons[i].Setup(_inkStory.currentChoices[i].text.Trim(), delegate{ChooseOption(choiceIndex);});
 		}
+
+		if (OnAfterContinue != null) OnAfterContinue();
 	}
 
 	void ChooseOption(int index) {
