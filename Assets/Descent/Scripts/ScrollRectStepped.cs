@@ -122,6 +122,8 @@ namespace UnityEngine.UI
         public ScrollRectEvent onValueChanged { get { return m_OnValueChanged; } set { m_OnValueChanged = value; } }
 
 		[SerializeField] float _stepSize = 10f;
+        [SerializeField] ScrollRectEvent m_OnPositionChanged = new ScrollRectEvent();
+        public ScrollRectEvent onPositionChanged {get {return m_OnPositionChanged;}}
 
         // The offset from handle position to mouse down position
         private Vector2 m_PointerStartLocalCursor = Vector2.zero;
@@ -372,6 +374,7 @@ namespace UnityEngine.UI
 
             if (position != m_Content.anchoredPosition) {
                 m_Content.anchoredPosition = position;
+                m_OnPositionChanged.Invoke(position);
                 UpdateBounds();
             }
         }
