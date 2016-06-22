@@ -18,6 +18,12 @@ ModelImporter:
     100020: Plane_003
     100022: Plane_004
     100024: Plane_005
+    100026: Cyan
+    100028: Feed_Frame
+    100030: Green
+    100032: Lights
+    100034: Screen
+    100036: Screen_Frame
     400000: Circle
     400002: Circle_001
     400004: //RootNode
@@ -31,6 +37,12 @@ ModelImporter:
     400020: Plane_003
     400022: Plane_004
     400024: Plane_005
+    400026: Cyan
+    400028: Feed_Frame
+    400030: Green
+    400032: Lights
+    400034: Screen
+    400036: Screen_Frame
     2300000: Circle
     2300002: Circle_001
     2300004: Plane
@@ -43,6 +55,12 @@ ModelImporter:
     2300018: Plane_003
     2300020: Plane_004
     2300022: Plane_005
+    2300024: Cyan
+    2300026: Feed_Frame
+    2300028: Green
+    2300030: Lights
+    2300032: Screen
+    2300034: Screen_Frame
     3300000: Circle
     3300002: Circle_001
     3300004: Plane
@@ -55,6 +73,12 @@ ModelImporter:
     3300018: Plane_003
     3300020: Plane_004
     3300022: Plane_005
+    3300024: Cyan
+    3300026: Feed_Frame
+    3300028: Green
+    3300030: Lights
+    3300032: Screen
+    3300034: Screen_Frame
     4300000: Circle_001
     4300002: Circle
     4300004: Plane_002
@@ -67,6 +91,12 @@ ModelImporter:
     4300018: Plane_003
     4300020: Plane_004
     4300022: Plane_005
+    4300024: Lights
+    4300026: Green
+    4300028: Cyan
+    4300030: Screen
+    4300032: Screen_Frame
+    4300034: Feed_Frame
     7400000: Default Take
     9500000: //RootNode
   materials:

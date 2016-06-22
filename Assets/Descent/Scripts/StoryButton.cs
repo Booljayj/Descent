@@ -7,14 +7,16 @@ public class StoryButton : MonoBehaviour {
 	[SerializeField] Text _text;
 
 	public void Setup(string choiceText, UnityAction choiceDelegate) {
-		gameObject.SetActive(true);
+		_button.interactable = true;
 		_button.onClick.AddListener(choiceDelegate);
+		_text.gameObject.SetActive(true);
 		_text.text = choiceText;
 	}
 
 	public void Clear() {
-		gameObject.SetActive(false);
+		_button.interactable = false;
 		_button.onClick.RemoveAllListeners();
+		_text.gameObject.SetActive(false);
 		_text.text = "Deactivated Button";
 	}
 }
