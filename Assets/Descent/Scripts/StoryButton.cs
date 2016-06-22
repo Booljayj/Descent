@@ -8,7 +8,7 @@ public class StoryButton : MonoBehaviour {
 
 	public void Setup(string choiceText, UnityAction choiceDelegate) {
 		_button.interactable = true;
-		_button.onClick.AddListener(choiceDelegate);
+		if (choiceDelegate != null) _button.onClick.AddListener(choiceDelegate);
 		_text.gameObject.SetActive(true);
 		_text.text = choiceText;
 	}

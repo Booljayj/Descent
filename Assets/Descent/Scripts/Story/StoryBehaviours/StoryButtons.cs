@@ -3,10 +3,8 @@
 namespace StoryReading {
 	public class StoryButtons : StoryBehaviour {
 		[SerializeField] StoryButton[] _choiceButtons;
-		[SerializeField, HideInInspector] StoryReader _reader;
 
 		public override void OnStoryLoaded(StoryReader reader) {
-			_reader = reader;
 			ClearButtons();
 		}
 
@@ -17,8 +15,7 @@ namespace StoryReading {
 		public override void OnStoryOption(string optionText, int optionIndex) {
 			if (optionIndex > -1 && optionIndex < _choiceButtons.Length) {
 				_choiceButtons[optionIndex].Setup(
-					optionText,
-					delegate{_reader.ChooseOption(optionIndex);});
+					optionText, null);
 			} else {
 				Debug.LogWarning("Invalid option index "+optionIndex.ToString());
 			}

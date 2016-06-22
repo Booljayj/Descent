@@ -3,11 +3,9 @@ using Ink.Runtime;
 using System.Collections.Generic;
 
 namespace StoryReading {
-	public class StoryReader : MonoBehaviour {
+	public class StoryReader : MonoBehaviour, ISerializationCallbackReceiver {
 		[SerializeField] TextAsset _storyJSON;
 		[SerializeField] bool _playOnStart;
-
-		[SerializeField, HideInInspector] List<StoryBehaviour> _behaviours;
 
 		[SerializeField, HideInInspector] bool _isPlaying;
 		public bool isPlaying {get {return _isPlaying;}}
@@ -15,7 +13,10 @@ namespace StoryReading {
 		Story _inkStory;
 		public Story Story {get {return _inkStory;}}
 
-		void Awake() {
+		[SerializeField, HideInInspector] List<StoryBehaviour> _behaviours;
+		[SerializeField, HideInInspector] string _serializedData;
+
+		void OnEnable() {
 			_behaviours = new List<StoryBehaviour>();
 			GetComponents<StoryBehaviour>(_behaviours);
 		}
@@ -79,5 +80,17 @@ namespace StoryReading {
 				Debug.LogWarning("Cannot choose option, story is not playing");
 			}
 		}
-	}
+
+		void ISerializationCallbackReceiver.OnBeforeSerialize() {
+			if (_inkStory != null) _serializedData = _inkStory.state.ToJson(false);
+			else _serializedData = null;
+		}
+
+		void ISerializationCallbackReceiver.OnAfterDeserialize() {
+			if (_storyJSON && !string.IsNullOrEmpty(_serializedData)) {
+				_inkStory = new Story(_storyJSON.text);
+				_inkStory.state.LoadJson(_serializedData);
+			}
+		}
+    }
 }
