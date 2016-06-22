@@ -1,15 +1,15 @@
 fileFormatVersion: 2
 guid: 0ea594e2b78e14895bccbb0c44328dd2
-timeCreated: 1466570570
+timeCreated: 1466572344
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: option lights source_0
     21300002: option lights source_1
     21300004: option lights source_2
-    21300006: option lights_0
-    21300008: option lights_1
-    21300010: option lights_2
+    21300006: OptionLights_0
+    21300008: OptionLights_1
+    21300010: OptionLights_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,7 +56,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: option lights_0
+    - name: OptionLights_0
       rect:
         serializedVersion: 2
         x: 0
@@ -64,7 +64,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 18, y: 32}
@@ -76,7 +76,7 @@ TextureImporter:
         - {x: 32, y: -18}
         - {x: 32, y: 14}
         - {x: 20, y: 29}
-    - name: option lights_1
+    - name: OptionLights_1
       rect:
         serializedVersion: 2
         x: 64
@@ -84,7 +84,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -31, y: 32}
@@ -95,7 +95,7 @@ TextureImporter:
         - {x: 32, y: -15}
         - {x: 32, y: 29}
         - {x: 26, y: 32}
-    - name: option lights_2
+    - name: OptionLights_2
       rect:
         serializedVersion: 2
         x: 128
@@ -103,7 +103,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -28, y: 32}
